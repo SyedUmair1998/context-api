@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import User from './User';
 
-function App() {
+export const myContext = React.createContext();
+
+const App = () => {
+  const [name,setName] = useState('Syed Umair Hussain');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <myContext.Provider value = {name}>
+    <User />
+    </myContext.Provider>
+  )
 }
 
-export default App;
+export default App
